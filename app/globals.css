@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
+/* 🌈 Dynamic Color Variables */
 :root {
-  --background: #ffffff;
+  --background: #000000;
   --foreground: #171717;
+  --accent: #2563eb; /* Tailwind blue-600 */
 }
 
 @theme inline {
@@ -12,15 +14,156 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* 🌙 Dark Mode Colors */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #050505;
+    --foreground: #f5f5f5;
+    --accent: #38bdf8; /* Sky-400 */
   }
 }
 
+/* 🧠 Global Styling */
+html,
 body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
+  scroll-behavior: smooth;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 🌊 LIQUID ETHER BACKGROUND EFFECT */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      600px circle at 15% 20%,
+      rgba(58, 165, 210, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      800px circle at 80% 60%,
+      rgba(153, 61, 240, 0.306),
+      transparent 40%
+    ),
+    radial-gradient(
+      400px circle at 60% 90%,
+      rgba(34, 197, 94, 0.12),
+      transparent 40%
+    );
+  animation: float 15s ease-in-out infinite alternate;
+  filter: blur(60px);
+  transform: translateZ(0);
+}
+
+@keyframes float {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 100% 100%;
+    opacity: 1;
+  }
+}
+
+/* ✨ Subtle gradient overlay to make text readable */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.3)
+  );
+  pointer-events: none;
+}
+
+/* === Premium Metallic Shiny Text === */
+.shiny-text {
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  background: linear-gradient(
+    120deg,
+    #3026bd,
+    #a545d8,
+    #b1e0ff,
+    #908fe7,
+    #e45fffce
+  );
+  background-size: 300% 300%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shinyMove 6s ease-in-out infinite;
+  transition: background-position 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+}
+
+narrow white streak that moves fast .shiny-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: streakMove 3s linear infinite;
+}
+
+/* slow subtle gradient motion */
+@keyframes shinyMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* fast white streak flash */
+@keyframes streakMove {
+  0% {
+    left: -75%;
+  }
+  50% {
+    left: 125%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* Light cursor reflection */
+.shiny-text:hover {
+  background-position: 50% 40%;
+  filter: drop-shadow(0 0 20px rgba(93, 247, 255, 0.4));
+}
+
+/* Optional reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .shiny-text,
+  .shiny-text::before {
+    animation: none;
+  }
 }
