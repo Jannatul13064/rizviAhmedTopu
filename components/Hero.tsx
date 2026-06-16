@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 
 export default function Hero() {
-  const fullName = "RIZVI AHMED TOPU";
+  const fullName = "RIZVI AHAMED TOPU";
 
   const icons = useMemo(
     () => [FaHeadset, FaTasks, FaUserCheck, FaChartLine, FaRocket],
