@@ -58,20 +58,20 @@ export default function Contact() {
             <div className="flex items-center gap-3 sm:gap-4">
               <Mail className="text-blue-400" size={20} />
               <a
-                href="mailto:corporation.abc.bd@gmail.com"
+                href="mailto:rizviahamedtopu@gmail.com"
                 className="text-gray-200 hover:text-blue-400 transition-colors text-sm sm:text-base break-all"
               >
-                corporation.abc.bd@gmail.com
+                rizviahamedtopu@gmail.com
               </a>
             </div>
 
             <div className="flex items-center gap-3 sm:gap-4">
               <Phone className="text-blue-400" size={20} />
               <a
-                href="tel:+8801711460062"
+                href="tel:+8801747310818"
                 className="text-gray-200 hover:text-blue-400 transition-colors text-sm sm:text-base"
               >
-                +8801711460062
+                +8801747310818
               </a>
             </div>
 
